@@ -16,3 +16,39 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10;
+
+  margin-top: 60;
+}
+
+.field {
+  display: block;
+  color: black;
+
+  display: inline;
+
+  border-radius: 20px;
+  
+  border: 1px solid green;
+  padding: 10px;
+  width: 100px;
+}
+.value {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: xx-small;
+}
