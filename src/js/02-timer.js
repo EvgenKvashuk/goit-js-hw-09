@@ -30,7 +30,7 @@ const fp = flatpickr("input#datetime-picker", options);
 refs.inputDate.addEventListener("input", (evt) => {
     let CURRENT_DATA = new Date();
     let choseDate = fp.selectedDates[0];
-    // Показує window.alert("Please choose a date in the future") якщо обрана дата в минулому.
+    // Показує сповіщення("Please choose a date in the future") якщо обрана дата в минулому.
     if (choseDate > CURRENT_DATA) {
         refs.startBtn.removeAttribute("disabled", "disabled");
     }
@@ -39,6 +39,7 @@ refs.inputDate.addEventListener("input", (evt) => {
     if (choseDate < CURRENT_DATA) {
         // window.alert("Please choose a date in the future")
         Notiflix.Notify.failure("Please choose a date in the future");
+        refs.startBtn.setAttribute("disabled", "disabled");
     }
 });
 
@@ -64,6 +65,6 @@ refs.startBtn.addEventListener("click", (evt) => {
         const pushSeconds = seconds > 0 ? refs.seconds.textContent = seconds : refs.seconds.textContent = "00";
         const pushMinutes = minutes > 0 ? refs.minutes.textContent = minutes : refs.minutes.textContent = "00";
         const pushHours = hours > 0 ? refs.hours.textContent = hours : refs.hours.textContent = "00";
-        const pushDays = days > 0 ? refs.days.textContent = days : refs.days.textContent = "0";
+        const pushDays = days > 0 ? refs.days.textContent = days : refs.days.textContent = "00";
     }, 1000);
 });
