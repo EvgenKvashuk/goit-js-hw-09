@@ -1,8 +1,25 @@
-function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
-  }
+import Notiflix from 'notiflix';
+
+const refs = {
+  form: document.querySelector(".form"),
+  createBtn: document.querySelector('.creatBtn'),
 }
+
+refs.createBtn.addEventListener("click", (evt) => {
+
+console.log("haha")
+
+});
+
+
+refs.form.addEventListener("input", (evt) => {
+
+  console.log("123")
+  
+  });
+
+
+
+
+
+
