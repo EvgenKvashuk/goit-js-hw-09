@@ -61,11 +61,9 @@ refs.startBtn.addEventListener("click", (evt) => {
         let hours = pad(Math.floor(delta / 1000 / 60 / 60) % 24);
         let days = Math.floor(delta / 1000 / 60 / 60 / 24);
 
-        refs.seconds.textContent = seconds;
-        refs.minutes.textContent = minutes;
-        refs.hours.textContent = hours;
-        refs.days.textContent = days;
-
-        // console.log(`${days}:${hours}:${minutes}:${seconds}`)
+        const pushSeconds = seconds > 0 ? refs.seconds.textContent = seconds : refs.seconds.textContent = "00";
+        const pushMinutes = minutes > 0 ? refs.minutes.textContent = minutes : refs.minutes.textContent = "00";
+        const pushHours = hours > 0 ? refs.hours.textContent = hours : refs.hours.textContent = "00";
+        const pushDays = days > 0 ? refs.days.textContent = days : refs.days.textContent = "0";
     }, 1000);
 });
