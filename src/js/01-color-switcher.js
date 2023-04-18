@@ -23,7 +23,5 @@ refs.startBtn.addEventListener("click", () => {
 // кнопка зупинки
 refs.stopBtn.addEventListener("click", () => {
   clearInterval(timerId);
-  // console.log(`Interval with id ${timerId} has stopped!`);
-  // var b = document.querySelector(".js-start");
   refs.startBtn.removeAttribute("disabled", "disabled");
 });
