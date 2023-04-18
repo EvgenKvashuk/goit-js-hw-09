@@ -27,6 +27,8 @@ const options = {
 
 const fp = flatpickr("input#datetime-picker", options);
 
+
+
 refs.inputDate.addEventListener("input", (evt) => {
     let CURRENT_DATA = new Date();
     let choseDate = fp.selectedDates[0];
@@ -67,4 +69,5 @@ refs.startBtn.addEventListener("click", (evt) => {
         const pushHours = hours > 0 ? refs.hours.textContent = hours : refs.hours.textContent = "00";
         const pushDays = days > 0 ? refs.days.textContent = days : refs.days.textContent = "00";
     }, 1000);
+
 });

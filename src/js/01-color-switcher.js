@@ -24,6 +24,6 @@ refs.startBtn.addEventListener("click", () => {
 refs.stopBtn.addEventListener("click", () => {
   clearInterval(timerId);
   // console.log(`Interval with id ${timerId} has stopped!`);
-  var b = document.querySelector(".js-start");
+  // var b = document.querySelector(".js-start");
   refs.startBtn.removeAttribute("disabled", "disabled");
 });
