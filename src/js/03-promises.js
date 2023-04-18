@@ -2,9 +2,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   form: document.querySelector('.form'),
-  delay: document.querySelector('input[name="delay"]'),
-  step: document.querySelector('input[name="step"]'),
-  amount: document.querySelector('input[name="amount"]'),
+  delay: document.querySelector('.delay-js'),
+  step: document.querySelector('.step-js'),
+  amount: document.querySelector('.amount-js'),
 }
 
 refs.form.addEventListener('submit', onSubmitForm);
@@ -12,9 +12,9 @@ refs.form.addEventListener('submit', onSubmitForm);
 function onSubmitForm(e) {
   e.preventDefault();
 
-  delay = Number(e.currentTarget.delay.value);
-  step = Number(e.currentTarget.step.value);
-  amount = Number(e.currentTarget.amount.value);
+delay = Number(e.currentTarget.delay.value);
+step = Number(e.currentTarget.step.value);
+amount = Number(e.currentTarget.amount.value);
 
   if (delay >= 0 && step >= 0 && amount > 0) {
     for (let position = 1; position <= amount; position += 1) {
