@@ -12,9 +12,9 @@ refs.form.addEventListener('submit', onSubmitForm);
 function onSubmitForm(e) {
   e.preventDefault();
 
-delay = Number(e.currentTarget.delay.value);
-step = Number(e.currentTarget.step.value);
-amount = Number(e.currentTarget.amount.value);
+delay = Number(e.currentTarget.refs.delay.value);
+step = Number(e.currentTarget.refs.step.value);
+amount = Number(e.currentTarget.refs.amount.value);
 
   if (delay >= 0 && step >= 0 && amount > 0) {
     for (let position = 1; position <= amount; position += 1) {
