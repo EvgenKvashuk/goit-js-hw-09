@@ -38,7 +38,8 @@ const options = {
 const fp = flatpickr("input#datetime-picker", options);
 
 refs.startBtn.addEventListener("click", (evt) => {
-
+    refs.startBtn.setAttribute("disabled", "disabled");
+    
     function pad(value) {
         return String(value).padStart(2, '0')
     }
@@ -61,7 +62,6 @@ refs.startBtn.addEventListener("click", (evt) => {
         const pushHours = hours > 0 ? refs.hours.textContent = hours : refs.hours.textContent = "00";
         const pushDays = days > 0 ? refs.days.textContent = days : refs.days.textContent = "00";
     }, 1000);
-
 });
 
 
