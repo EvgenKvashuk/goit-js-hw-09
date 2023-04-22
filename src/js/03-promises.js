@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
+console.log('dfhfdh')
 
-browserslist.clearCaches()
 
 const refs = {
   form: document.querySelector('.form'),
@@ -57,7 +57,3 @@ function onReject ({position, delay}) {
   Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
 
 };
-
-
-
-
