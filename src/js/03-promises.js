@@ -1,41 +1,45 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
 
 const refs = {
   form: document.querySelector('.form'),
+}
 
-  delay: document.querySelector('.delay-js'),
-  step: document.querySelector('.step-js'),
-  amount: document.querySelector('.amount-js'),
+refs.form.addEventListener('submit', onFormSubmit)
 
-  creatBtn: document.querySelector('.creatBtn')
+function onFormSubmit (evt) {
+  evt.preventDefault();
+  const inputDate = {
+    delay: Number(evt.target.elements.delay.value),
+    step: Number(evt.target.elements.step.value),
+    amount: Number(evt.target.elements.amount.value),
+  };
+  runPromise(inputDate.delay, inputDate.step, inputDate.amount);
 }
 
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
+  return new Promise((resolve, reject) => {
+    const shouldResolve = Math.random() > 0.3;
+    setTimeout (() => {
+      if (shouldResolve) {
+        resolve({position, delay});
+      } else {
+        reject({position,delay});
+      }
+    },delay);   
+  });
+  
+}
+function runPromise(delay, step, amount) {
+  for (let i = 1, innerDelay = delay; i <= amount; i += 1, innerDelay += step) {
+    createPromise(i, innerDelay).then(onResolve).catch(onReject);
   }
 }
 
-createPromise(2, 1500)
-  .then(({ position, delay }) => {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  })
-  .catch(({ position, delay }) => {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-  });
+function onResolve ({position, delay}) {
+  Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  console.log(position);
+};
 
-
-
-
-refs.creatBtn.addEventListener('click', (evt) => {
-
-  setTimeout(() => {
-    for (let i = 0; i < amount; i++) {
-      createPromise(position, delay)
-    }
-  }, refs.delay)
-
-})
+function onReject ({position, delay}) {
+  Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+};
